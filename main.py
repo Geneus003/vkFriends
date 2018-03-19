@@ -1,6 +1,8 @@
 import vk_api
 import time
 import sqlite3
+from datetime import datetime
+
 
 
 def createDB():
@@ -22,7 +24,7 @@ idfriends = [167772346, 347023208, 402970340, 191457944, 473652730, 253371424, 3
 def appendFriends():
     friendDB = sqlite3.connect("test.db")
 
-    login, password = '8ggggggg', 'ggggggg'
+    login, password = '8983209%%%%', '%%%%%%'
     vk_session = vk_api.VkApi(login, password)
 
     try:
@@ -32,6 +34,8 @@ def appendFriends():
         return
 
     vk = vk_session.get_api()
+
+    vk.wall.post(message = "Я запустилась")
 
     friend = []
 
@@ -73,7 +77,7 @@ appendFriends()
 
 def main():
 
-    login, password = 'ппппп', 'пппппп'
+    login, password = '8983209%%%%', '%%%%%%%'
     vk_session = vk_api.VkApi(login, password)
 
     try:
@@ -99,7 +103,13 @@ def main():
 
             plus_secs(user_name)
 
-    print("\n work - fine")
+    file = open("something.txt", "w")
+
+    now = datetime.now()
+
+    file.write(str(datetime.strftime(datetime.now(), "%Y.%m.%d %H:%M:%S")))
+
+    file.close()
 
 while True:
     n = time.time()
